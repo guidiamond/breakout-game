@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_Menu_Principal : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class UI_Menu_Principal : MonoBehaviour
 
     public void Comecar()
     {
-        Debug.Log("Carai");
+        Debug.Log("Entra");
         gm.ChangeState(GameManager.GameState.GAME);
     }
 }
