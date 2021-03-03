@@ -31,7 +31,6 @@ public class GameManager
     public void ChangeState(GameState nextState)
     {
         if (nextState == GameState.GAME && isUnPause == false) {
-            Debug.Log("oi");
             Reset();
         }
         gameState = nextState;

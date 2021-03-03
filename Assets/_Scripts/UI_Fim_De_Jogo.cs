@@ -12,11 +12,11 @@ public class UI_Fim_De_Jogo : MonoBehaviour
 
         if (gm.vidas > 0 && gm.timeToLose > 0)
         {
-            message.text = "Você Ganhou!!!";
+            message.text = $"Você Ganhou!!! Sua pontuação foi de {gm.pontos}";
         }
         else
         {
-            message.text = "Você Perdeu!!";
+            message.text = $"Você Perdeu!!, sua pontuação foi de: {gm.pontos}";
         }
     }
 

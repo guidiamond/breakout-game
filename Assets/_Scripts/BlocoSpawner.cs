@@ -42,7 +42,6 @@ public class BlocoSpawner : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(gm.timeToLose);
         if (gm.gameState == GameManager.GameState.GAME) { 
             if (transform.childCount <= 0 || gm.timeToLose <= 0) {
                 gm.ChangeState(GameManager.GameState.ENDGAME);
