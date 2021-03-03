@@ -48,7 +48,7 @@ public class BlocoSpawner : MonoBehaviour
             }
             msTimer += Time.deltaTime;
             gm.timer = (int)(msTimer % 60); // counts in secs
-            gm.timeToLose = 20 - gm.timer;
+            gm.timeToLose = 120 - gm.timer;
         }
         if (gm.gameState == GameManager.GameState.MENU || gm.gameState == GameManager.GameState.ENDGAME) {
             msTimer = 0;
