@@ -14,7 +14,7 @@ public class UI_Menu_Principal : MonoBehaviour
 
     public void Comecar()
     {
-        Debug.Log("Entra");
+        gm.isUnPause = false;
         gm.ChangeState(GameManager.GameState.GAME);
     }
 }

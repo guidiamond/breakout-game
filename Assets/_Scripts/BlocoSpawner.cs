@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlocoSpawner : MonoBehaviour
 {
@@ -16,21 +17,22 @@ public class BlocoSpawner : MonoBehaviour
 
     void Construir()
     {
-
-
-        if (gm.gameState == GameManager.GameState.GAME)
+        if (gm.isUnPause == false) 
         {
-            foreach (Transform child in transform)
+            if (gm.gameState == GameManager.GameState.GAME)
             {
-                GameObject.Destroy(child.gameObject);
-            }
-            for (int i = 0; i < 12; i++)
-            {
-                for (int j = 0; j < 4; j++)
+                foreach (Transform child in transform)
                 {
-                    Vector3 posicao = new Vector3(-9 + 1.55f * i, 4 - 0.55f * j);
+                    GameObject.Destroy(child.gameObject);
+                }
+                for (int i = 0; i < 12; i++)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        Vector3 posicao = new Vector3(-9 + 1.55f * i, 4 - 0.55f * j);
 
-                    Instantiate(Bloco, posicao, Quaternion.identity, transform);
+                        Instantiate(Bloco, posicao, Quaternion.identity, transform);
+                    }
                 }
             }
         }

@@ -22,6 +22,7 @@ public class UI_Fim_De_Jogo : MonoBehaviour
 
     public void Voltar()
     {
-        gm.ChangeState(GameManager.GameState.GAME);
+        gm.isUnPause = false;
+        gm.ChangeState(GameManager.GameState.MENU);
     }
 }

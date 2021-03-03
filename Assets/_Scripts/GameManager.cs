@@ -12,8 +12,12 @@ public class GameManager
     public int vidas;
     public int pontos;
 
+    // Used on BlocoSpawner.Construir and GameManager.ChangeState so if the game is unpaused it doesn't reset the scores
+    public bool isUnPause = false; 
+
     public delegate void ChangeStateDelegate();
     public static ChangeStateDelegate changeStateDelegate;
+    
     private void Reset()
     {
         vidas = 3;
@@ -22,7 +26,9 @@ public class GameManager
 
     public void ChangeState(GameState nextState)
     {
-        if (nextState == GameState.GAME) Reset();
+        if (nextState == GameState.GAME && isUnPause == false) {
+            Reset();
+        }
         gameState = nextState;
         changeStateDelegate();
     }
