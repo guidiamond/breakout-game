@@ -31,9 +31,20 @@ public class BlocoSpawner : MonoBehaviour
                 {
                     for (int j = 0; j < 4; j++)
                     {
+                    Color currColor = Color.yellow;
+                    if (j % 2 == 0) {
+                        currColor = Color.green;
+                    }
+                    else if (j % 3 == 0) {
+                         currColor = Color.magenta;
+                    }
                         Vector3 posicao = new Vector3(-9 + 1.55f * i, 4 - 0.55f * j);
 
-                        Instantiate(Bloco, posicao, Quaternion.identity, transform);
+                        GameObject t = Instantiate(Bloco, posicao, Quaternion.identity, transform);
+                        Renderer rend = t.GetComponent<Renderer>();
+                        rend.material.color = currColor;
+                        // newBloco.GetComponent <MeshRenderer> ().material.color = new Color (Random.Range (0, 1), Random.Range (0, 1), Random.Range (0, 1), Random.Range (0, 1));
+                        // newBloco.GetComponent <MeshRenderer> ().material.color = newColor (Random.Range (0, 1), Random.Range (0, 1), Random.Range (0, 1), Random.Range (0, 1));
                     }
                 }
             }
