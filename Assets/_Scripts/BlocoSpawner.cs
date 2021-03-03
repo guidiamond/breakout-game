@@ -40,11 +40,9 @@ public class BlocoSpawner : MonoBehaviour
                     }
                         Vector3 posicao = new Vector3(-9 + 1.55f * i, 4 - 0.55f * j);
 
-                        GameObject t = Instantiate(Bloco, posicao, Quaternion.identity, transform);
+                        GameObject t = Instantiate(Bloco, posicao, Quaternion.identity, transform) as GameObject;
                         Renderer rend = t.GetComponent<Renderer>();
                         rend.material.color = currColor;
-                        // newBloco.GetComponent <MeshRenderer> ().material.color = new Color (Random.Range (0, 1), Random.Range (0, 1), Random.Range (0, 1), Random.Range (0, 1));
-                        // newBloco.GetComponent <MeshRenderer> ().material.color = newColor (Random.Range (0, 1), Random.Range (0, 1), Random.Range (0, 1), Random.Range (0, 1));
                     }
                 }
             }
