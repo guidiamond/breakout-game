@@ -8,8 +8,7 @@ public class MovimentoRaquete : MonoBehaviour
 
     GameManager gm;
 
-    [Range(1, 10)]
-    public float velocidade;
+    private float velocidade = 5.0f;
     // Start is called before the first frame update
     void Start() {
         gm = GameManager.GetInstance();

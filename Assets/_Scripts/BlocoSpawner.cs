@@ -7,9 +7,11 @@ public class BlocoSpawner : MonoBehaviour
 {
     public GameObject Bloco;
     GameManager gm;
+    private float msTimer; // counts in ms
 
     void Start()
     {
+        msTimer = 0.0f;
         gm = GameManager.GetInstance();
         GameManager.changeStateDelegate += Construir;
         Construir();
@@ -40,10 +42,19 @@ public class BlocoSpawner : MonoBehaviour
 
     void Update()
     {
-        if (transform.childCount <= 0 && gm.gameState == GameManager.GameState.GAME)
-        {
-            gm.ChangeState(GameManager.GameState.ENDGAME);
+        Debug.Log(gm.timeToLose);
+        if (gm.gameState == GameManager.GameState.GAME) { 
+            if (transform.childCount <= 0 || gm.timeToLose <= 0) {
+                gm.ChangeState(GameManager.GameState.ENDGAME);
+            }
+            msTimer += Time.deltaTime;
+            gm.timer = (int)(msTimer % 60); // counts in secs
+            gm.timeToLose = 20 - gm.timer;
         }
+        if (gm.gameState == GameManager.GameState.MENU || gm.gameState == GameManager.GameState.ENDGAME) {
+            msTimer = 0;
+        }
+       
     }
 
 }
